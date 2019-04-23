@@ -2,11 +2,12 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <meta name="description" content=" 节流 - 理解，实践与实现 节流(分流)，与防抖（去抖）实现原理相似。本文主要讨论节流，镜像文章：防抖 - 理解，实践与实现。分开讨论防抖和节流，主要是为了让一些还不太了解节流防抖的读者能够有针对性地，逐一掌握它们。
-如何用代码... (苏溪云的博客)">
+    <meta name="description" content=" 使用React手写一个对话框或模态框 打算用React写对话框已经很长一段时间，现在是时候兑现承诺了。实际上，写起来相当简单。
+
+核心在于使用React的接口React.createPortal(element, domContainer... (苏溪云的博客)">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>节流 - 理解，实践与实现(苏溪云的博客)</title>
+    <title>使用React手写一个对话框或模态框(苏溪云的博客)</title>
     <style>
 html,body,#root {
   width: 100%;
@@ -49,55 +50,72 @@ html,body{width:100%;height:100%;margin:0;padding:0;} body{font-size:'16px';font
 /* sc-component-id: sc-jKJlTe */
 .iBxTbW{display:-webkit-box;display:-webkit-flex;display:-ms-flexbox;display:flex;-webkit-flex-direction:column;-ms-flex-direction:column;flex-direction:column;-webkit-align-items:center;-webkit-box-align:center;-ms-flex-align:center;align-items:center;}
 /* sc-component-id: sc-eNQAEJ */
-.jxwoMb{visibility:visible;}</style>
+.jxwoMb{visibility:visible;}</style><style data-styled="" data-styled-version="4.1.3"></style>
   </head>
   <body>
-    <div id="root"><div style="width:100%;height:100%"><div style="width:100%;height:100%"><div style="position:absolute;right:40px;top:20px"><div><div><a href="/understand-and-make-the-throttle" class="sc-htoDjs hFgBZY">ENGLISH</a></div></div></div><div class="sc-ifAKCX gJHHmf"><span><a href="/cn/" style="color:unset;text-decoration:none"><div class="sc-EHOje ePLaqF"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjxzdmcgd2lkdGg9IjIxMnB4IiBoZWlnaHQ9IjE0NnB4IiB2aWV3Qm94PSIwIDAgMjEyIDE0NiIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4KICAgIDwhLS0gR2VuZXJhdG9yOiBTa2V0Y2ggNTAuMiAoNTUwNDcpIC0gaHR0cDovL3d3dy5ib2hlbWlhbmNvZGluZy5jb20vc2tldGNoIC0tPgogICAgPHRpdGxlPnRzPC90aXRsZT4KICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPgogICAgPGRlZnM+PC9kZWZzPgogICAgPGcgaWQ9IlBhZ2UtMSIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgaWQ9InRzIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNjcuMDAwMDAwLCAtMzMuMDAwMDAwKSI+CiAgICAgICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtMiIgZmlsbC1vcGFjaXR5PSIwIiBmaWxsPSIjRDhEOEQ4IiB4PSI2OCIgeT0iMSIgd2lkdGg9IjIxMCIgaGVpZ2h0PSIyMTAiPjwvcmVjdD4KICAgICAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZSIgZmlsbD0iIzFCQzJGQSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTc2LjAwMDAwMCwgMTA1LjAwMDAwMCkgcm90YXRlKDE1LjAwMDAwMCkgdHJhbnNsYXRlKC0xNzYuMDAwMDAwLCAtMTA1LjAwMDAwMCkgIiB4PSIxNDYiIHk9IjEwMSIgd2lkdGg9IjYwIiBoZWlnaHQ9IjgiPjwvcmVjdD4KICAgICAgICAgICAgPHRleHQgaWQ9IlMiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE2OS4xMDE0OTgsIDk5LjMyODM4MSkgcm90YXRlKC0yNzAuMDAwMDAwKSB0cmFuc2xhdGUoLTE2OS4xMDE0OTgsIC05OS4zMjgzODEpICIgZm9udC1mYW1pbHk9IlJvYm90by1UaGluLCBSb2JvdG8iIGZvbnQtc2l6ZT0iMjg4IiBmb250LXN0eWxlPSJjb25kZW5zZWQiIGZvbnQtd2VpZ2h0PSIzMDAiIGZpbGw9IiMxQkMyRkEiPgogICAgICAgICAgICAgICAgPHRzcGFuIHg9Ijg5LjQyOTg3OTMiIHk9IjE5Ny44MjgzODEiPlM8L3RzcGFuPgogICAgICAgICAgICA8L3RleHQ+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4=" height="30"/><span class="logoTitle">苏溪云</span></div></a></span><div class="sc-bZQynM hnVjwB"><div class="sc-gzVnrw kPWjyu"><a href="/cn/" style="color:unset;text-decoration:none">所有文章</a></div><div class="sc-gzVnrw kPWjyu"><a href="/cn/about" style="color:unset;text-decoration:none">关于作者</a></div><div class="sc-gzVnrw kPWjyu"><a href="https://github.com/Terry-Su/blogs-cn">GITHUB</a></div></div></div><div style="margin:50px 0 0 0;min-height:calc(100% - 118px - 50px)"><div class="sc-iwsKbI dtTnrN"><div class="wrapper"><div class="contentWrapper"><span class="titleWrapper">节流 - 理解，实践与实现</span><div class="markdownWrapper"><div class="markdown-body sc-bwzfXH hRNzSz"><div><div><div><p>节流(分流)，与防抖（去抖）实现原理相似。本文主要讨论节流，镜像文章：<a href="https://terry-su.github.io/cn/understand-and-make-the-debounce">防抖 - 理解，实践与实现</a>。分开讨论防抖和节流，主要是为了让一些还不太了解节流防抖的读者能够有针对性地，逐一掌握它们。<br/>
-<!-- -->如何用代码实现节流也是一个要点。本文采用循序渐进地方式，先绘制一个案例的流程图，再根据流程图的逻辑编写节流功能代码。</p><h2>节流案例</h2><br/><iframe src="https://terry-su.github.io/BlogCDN/iframes/js/throttle/mousemove/index.html?mode=result"></iframe><p>当鼠标移动时，mousemove事件频繁被触发。上方为未节流模式，每一次mousemove触发都会绘制一个圆点。而下方为节流模式，尽管mosuemove在鼠标移动时被多次触发，但只有在限定时间间隔才会绘制圆点。</p><h2>理解和实现节流</h2><p>通过上方案例，可以基本了解节流的作用: 频繁触发的事件，事件处理函数在一定的时间间隔内只执行一次。</p><p>不过节流函数是如何做到的？ 以上方案例为例，绘制其流程图如下。  </p><p>核心参数:
-1. 间隔时长
-2. 计时器</p><pre><code>graph TB
-开始 --&gt; IF1{计时器是否为空}
-
-IF1 --&gt; |是| A(绘制圆点)
-A --&gt; B(添加计时器, 过了 间隔时长 后, 清除计时器)
-B --&gt; 结束
-
-IF1 --&gt; |否| 结束
-</code></pre><p>根据流程图的思路实现分流函数：</p><pre><code class="language-js">function throttle( func, wait ) {
-  let timer
-
-  function throttled( ...args ) {
-    const self = this
-
-    if ( timer == null ) {
-      invokeFunc()
-      addTimer()
-    }
-
-    function addTimer() {
-      timer = setTimeout( () =&gt; {
-        clearTimer()
-      }, wait )
-    }
-
-    function invokeFunc() {
-      func.apply( self, args )
-    }
-  }
-
-  return throttled
-
-  function clearTimer() {
-    clearTimeout( timer )
-    timer = null
+    <div id="root"><div style="width:100%;height:100%"><div style="width:100%;height:100%"><div style="position:absolute;right:40px;top:20px"><div><div><a href="/write-a-modal-or-dialog-using-react" class="sc-htoDjs hFgBZY">ENGLISH</a></div></div></div><div class="sc-ifAKCX gJHHmf"><span><a href="/cn/" style="color:unset;text-decoration:none"><div class="sc-EHOje ePLaqF"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiIHN0YW5kYWxvbmU9Im5vIj8+Cjxzdmcgd2lkdGg9IjIxMnB4IiBoZWlnaHQ9IjE0NnB4IiB2aWV3Qm94PSIwIDAgMjEyIDE0NiIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIj4KICAgIDwhLS0gR2VuZXJhdG9yOiBTa2V0Y2ggNTAuMiAoNTUwNDcpIC0gaHR0cDovL3d3dy5ib2hlbWlhbmNvZGluZy5jb20vc2tldGNoIC0tPgogICAgPHRpdGxlPnRzPC90aXRsZT4KICAgIDxkZXNjPkNyZWF0ZWQgd2l0aCBTa2V0Y2guPC9kZXNjPgogICAgPGRlZnM+PC9kZWZzPgogICAgPGcgaWQ9IlBhZ2UtMSIgc3Ryb2tlPSJub25lIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPGcgaWQ9InRzIiB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtNjcuMDAwMDAwLCAtMzMuMDAwMDAwKSI+CiAgICAgICAgICAgIDxyZWN0IGlkPSJSZWN0YW5nbGUtMiIgZmlsbC1vcGFjaXR5PSIwIiBmaWxsPSIjRDhEOEQ4IiB4PSI2OCIgeT0iMSIgd2lkdGg9IjIxMCIgaGVpZ2h0PSIyMTAiPjwvcmVjdD4KICAgICAgICAgICAgPHJlY3QgaWQ9IlJlY3RhbmdsZSIgZmlsbD0iIzFCQzJGQSIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTc2LjAwMDAwMCwgMTA1LjAwMDAwMCkgcm90YXRlKDE1LjAwMDAwMCkgdHJhbnNsYXRlKC0xNzYuMDAwMDAwLCAtMTA1LjAwMDAwMCkgIiB4PSIxNDYiIHk9IjEwMSIgd2lkdGg9IjYwIiBoZWlnaHQ9IjgiPjwvcmVjdD4KICAgICAgICAgICAgPHRleHQgaWQ9IlMiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDE2OS4xMDE0OTgsIDk5LjMyODM4MSkgcm90YXRlKC0yNzAuMDAwMDAwKSB0cmFuc2xhdGUoLTE2OS4xMDE0OTgsIC05OS4zMjgzODEpICIgZm9udC1mYW1pbHk9IlJvYm90by1UaGluLCBSb2JvdG8iIGZvbnQtc2l6ZT0iMjg4IiBmb250LXN0eWxlPSJjb25kZW5zZWQiIGZvbnQtd2VpZ2h0PSIzMDAiIGZpbGw9IiMxQkMyRkEiPgogICAgICAgICAgICAgICAgPHRzcGFuIHg9Ijg5LjQyOTg3OTMiIHk9IjE5Ny44MjgzODEiPlM8L3RzcGFuPgogICAgICAgICAgICA8L3RleHQ+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4=" height="30"/><span class="logoTitle">苏溪云</span></div></a></span><div class="sc-bZQynM hnVjwB"><div class="sc-gzVnrw kPWjyu"><a href="/cn/" style="color:unset;text-decoration:none">所有文章</a></div><div class="sc-gzVnrw kPWjyu"><a href="/cn/about" style="color:unset;text-decoration:none">关于作者</a></div><div class="sc-gzVnrw kPWjyu"><a href="https://github.com/Terry-Su/blogs-cn">GITHUB</a></div></div></div><div style="margin:50px 0 0 0;min-height:calc(100% - 118px - 50px)"><div class="sc-iwsKbI dtTnrN"><div class="wrapper"><div class="contentWrapper"><span class="titleWrapper">使用React手写一个对话框或模态框</span><div class="markdownWrapper"><div class="markdown-body sc-bwzfXH hRNzSz"><div><div><div><p>打算用React写对话框已经很长一段时间，现在是时候兑现承诺了。实际上，写起来相当简单。</p><p>核心在于使用React的接口<code>React.createPortal(element, domContainer)</code>。该接口将<code>element</code>渲染后的DOM节点嵌入<code>domContainer</code>(通常是<code>document.body</code>)，并保证只嵌入一次。</p><p>所以，我们可以这样写一个对话框或模态框：</p><pre><code class="language-js">function Dialog() {
+    return React.createPortal( &lt;div&gt;Dialog contents&lt;/div&gt;, document.body )
+}
+</code></pre><p>一个新的<code>div</code>会出现在<code>body</code>内部：
+<img src="https://user-images.githubusercontent.com/23733477/56560376-d86dec00-65d6-11e9-95f5-bcfb31fcf16f.png" alt="image"/></p><p>一个完整DEMO:</p><div><div><div style="padding:20px" data-reactroot=""><button>Show Modal</button></div></div></div><pre><code class="language-js">class Modal extends React.Component {
+  render() {
+    const {
+      visible,
+      onClose
+    } = this.props
+    return visible &amp;&amp; ReactDOM.createPortal(&lt;StyledModalRoot&gt;
+      &lt;div className=&quot;box&quot;&gt;
+        Content
+        &lt;br/&gt;
+        &lt;button onClick={onClose}&gt;Close&lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/StyledModalRoot&gt;, document.body)
   }
 }
-</code></pre><p>接下来，用编写的节流函数实现上方案例</p><iframe src="https://terry-su.github.io/BlogCDN/iframes/js/throttle/test-mousemove/index.html?mode=result"></iframe><h2>应用场景</h2><p>无限的滚动条</p><iframe src="https://terry-su.github.io/BlogCDN/iframes/js/throttle/infinite-scrolling/index.html?mode=result"></iframe><h2>总结</h2><p>节流和防抖类似，都能有效优化系统性能，不过使用业务场景有所区别：</p><ul><li>防抖既可用于在多次触发的事件（如文本框逐个输入文字），也可用于在频繁触发的事件（如调整窗口尺寸）。</li><li>节流多只用在频繁触发的事件（如滚动滚动条）上。</li></ul></div></div></div></div></div><div class="markdown-body sc-gZMcBi fojmjn"><p><strong>感谢你花时间阅读这篇文章。如是其他平台来的读者，喜欢这篇文章的话欢迎在原平台文章上点赞、收藏和分享，让更多的人看到这篇文章，这也是对我最大的鼓励和支持！</strong></p><div><p><strong>欢迎<a href="https://github.com/Terry-Su/blogs-cn">订阅</a>，第一时间阅读我的最新原创前端技术博客。</strong></p></div></div><div class="sc-gqjmRU imdmvu"><div>发布时间<!-- -->: <!-- -->3/2/2019</div><div class="categoryWrapper">分类<!-- -->: <!-- -->Technology/FrontEnd/JavaScript</div><div class="reprintingNoteWrapper">作者版权所有，转载请注明出处，禁止商业转载</div></div></div></div><div class="sc-VigVT igoLLu"><div class="wrapper"><div><div style="width:100%"><div style="box-sizing:border-box;text-align:center"><a style="color:#4169e1;text-decoration:none" href="https://github.com/Terry-Su/blogs-cn/issues/3">添加评论 (by Github Issues)</a></div><div style="padding:0"></div></div></div><div class="disqusCommentWrapper"><div><div id="disqus_thread"></div><noscript>Please enable JavaScript to view the<!-- --> <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div></div></div></div></div></div><div class="sc-bxivhb fQwvIn"><span class="contentWrapper">版权 © 2017-<!-- -->2019<a class="authorLink" href="https://github.com/Terry-Su">苏溪云</a>保留所有权利</span></div></div></div></div>
+
+class App extends React.Component {
+  state = {
+    visibleModal: false
+  }
+  showModal = () =&gt; this.setState( { visibleModal: true } )
+  handleCloseModal = () =&gt; this.setState( { visibleModal: false } )
+  render() {
+    const { visibleModal } = this.state
+    return &lt;div style={{padding: &#x27;20px&#x27;}}&gt;
+    &lt;button onClick={ this.showModal }&gt;Show Modal&lt;/button&gt;
+    &lt;Modal visible={visibleModal} onClose={ this.handleCloseModal } /&gt;
+  &lt;/div&gt;
+  }
+}
+
+const StyledModalRoot = styled.div`
+  position: fixed;
+  z-index: 1001;
+  left: 0;
+  top: 0;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  background: rgba( 0, 0, 0, 0.2 );
+
+  &gt;.box {
+    position: relative;
+    display: grid;
+    place-items: center;
+    width: 80%;
+    height: 80%;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2), 0px 5px 8px 0px rgba(0,0,0,0.14), 0px 1px 14px 0px rgba(0,0,0,0.12);
+  }
+`
+</code></pre><p>是不是很简单?</p></div></div></div></div></div><div class="markdown-body sc-gZMcBi fojmjn"><p><strong>感谢你花时间阅读这篇文章。如是其他平台来的读者，喜欢这篇文章的话欢迎在原平台文章上点赞、收藏和分享，让更多的人看到这篇文章，这也是对我最大的鼓励和支持！</strong></p><div><p><strong>欢迎<a href="https://github.com/Terry-Su/blogs-cn">订阅</a>，第一时间阅读我的最新原创前端技术博客。</strong></p></div></div><div class="sc-gqjmRU imdmvu"><div>发布时间<!-- -->: <!-- -->4/23/2019</div><div class="categoryWrapper">分类<!-- -->: <!-- -->Technology/FrontEnd/React</div><div class="reprintingNoteWrapper">作者版权所有，转载请注明出处，禁止商业转载</div></div></div></div><div class="sc-VigVT igoLLu"><div class="wrapper"><div><div style="width:100%"><div style="box-sizing:border-box;text-align:center"><a style="color:#4169e1;text-decoration:none" href="https://github.com/Terry-Su/blogs-cn/issues/6">添加评论 (by Github Issues)</a></div><div style="padding:0"></div></div></div><div class="disqusCommentWrapper"><div><div id="disqus_thread"></div><noscript>Please enable JavaScript to view the<!-- --> <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript></div></div></div></div></div></div><div class="sc-bxivhb fQwvIn"><span class="contentWrapper">版权 © 2017-<!-- -->2019<a class="authorLink" href="https://github.com/Terry-Su">苏溪云</a>保留所有权利</span></div></div></div></div>
     <script src="/component-RemarkTemplate.js"></script>
   
 <script>
 
-window.CURRENT_PAGE={"path":"/cn/understand-and-make-the-throttle","data":{"pathnameRoot":"/cn/","authorUrl":"https://github.com/Terry-Su","locale":"zh_CN","logoTitle":"苏溪云","noteIsAutoTranslated":"本文为自动翻译。","copyright":{"left":"版权 © 2017-","center":"苏溪云","right":"保留所有权利"},"blogGithub":"https://github.com/Terry-Su/blogs-cn","id":"cn/understand-and-make-the-throttle","title":"节流 - 理解，实践与实现","path":"Technology/FrontEnd/JavaScript","route":"/cn/understand-and-make-the-throttle","text":"\n\nconst layoutProps = {\n  \n};\nclass MDXContent extends React.Component {\n  constructor(props) {\n    super(props)\n    this.layout = null\n  }\n  render() {\n    const { components, ...props } = this.props\n\n    return <MDXTag\n             name=\"wrapper\"\n             \n             components={components}><MDXTag name=\"p\" components={components}>{`节流(分流)，与防抖（去抖）实现原理相似。本文主要讨论节流，镜像文章：`}<MDXTag name=\"a\" components={components} parentName=\"p\" props={{\"href\":\"https://terry-su.github.io/cn/understand-and-make-the-debounce\"}}>{`防抖 - 理解，实践与实现`}</MDXTag>{`。分开讨论防抖和节流，主要是为了让一些还不太了解节流防抖的读者能够有针对性地，逐一掌握它们。`}<MDXTag name=\"br\" components={components} parentName=\"p\"></MDXTag>{`\n`}{`如何用代码实现节流也是一个要点。本文采用循序渐进地方式，先绘制一个案例的流程图，再根据流程图的逻辑编写节流功能代码。`}</MDXTag>\n<MDXTag name=\"h2\" components={components}>{`节流案例`}</MDXTag>\n<br/>\n<iframe src=\"https://terry-su.github.io/BlogCDN/iframes/js/throttle/mousemove/index.html?mode=result\" ></iframe>\n<MDXTag name=\"p\" components={components}>{`当鼠标移动时，mousemove事件频繁被触发。上方为未节流模式，每一次mousemove触发都会绘制一个圆点。而下方为节流模式，尽管mosuemove在鼠标移动时被多次触发，但只有在限定时间间隔才会绘制圆点。`}</MDXTag>\n<MDXTag name=\"h2\" components={components}>{`理解和实现节流`}</MDXTag>\n<MDXTag name=\"p\" components={components}>{`通过上方案例，可以基本了解节流的作用: 频繁触发的事件，事件处理函数在一定的时间间隔内只执行一次。`}</MDXTag>\n<MDXTag name=\"p\" components={components}>{`不过节流函数是如何做到的？ 以上方案例为例，绘制其流程图如下。  `}</MDXTag>\n<MDXTag name=\"p\" components={components}>{`核心参数:\n1. 间隔时长\n2. 计时器`}</MDXTag>\n<MDXTag name=\"pre\" components={components}><MDXTag name=\"code\" components={components} parentName=\"pre\" props={{}}>{`graph TB\n开始 --> IF1{计时器是否为空}\n\nIF1 --> |是| A(绘制圆点)\nA --> B(添加计时器, 过了 间隔时长 后, 清除计时器)\nB --> 结束\n\nIF1 --> |否| 结束\n`}</MDXTag></MDXTag>\n<MDXTag name=\"p\" components={components}>{`根据流程图的思路实现分流函数：`}</MDXTag>\n<MDXTag name=\"pre\" components={components}><MDXTag name=\"code\" components={components} parentName=\"pre\" props={{\"className\":\"language-js\"}}>{`function throttle( func, wait ) {\n  let timer\n\n  function throttled( ...args ) {\n    const self = this\n\n    if ( timer == null ) {\n      invokeFunc()\n      addTimer()\n    }\n\n    function addTimer() {\n      timer = setTimeout( () => {\n        clearTimer()\n      }, wait )\n    }\n\n    function invokeFunc() {\n      func.apply( self, args )\n    }\n  }\n\n  return throttled\n\n  function clearTimer() {\n    clearTimeout( timer )\n    timer = null\n  }\n}\n`}</MDXTag></MDXTag>\n<MDXTag name=\"p\" components={components}>{`\b接下来，\b用编写的节流函数实现上方案例`}</MDXTag>\n<iframe src=\"https://terry-su.github.io/BlogCDN/iframes/js/throttle/test-mousemove/index.html?mode=result\" ></iframe>\n<MDXTag name=\"h2\" components={components}>{`应用场景`}</MDXTag>\n<MDXTag name=\"p\" components={components}>{`无限的滚动条`}</MDXTag>\n<iframe src=\"https://terry-su.github.io/BlogCDN/iframes/js/throttle/infinite-scrolling/index.html?mode=result\" ></iframe>\n<MDXTag name=\"h2\" components={components}>{`总结`}</MDXTag>\n<MDXTag name=\"p\" components={components}>{`节流和防抖类似，都能有效优化系统性能，不过使用业务场景有所区别：`}</MDXTag>\n<MDXTag name=\"ul\" components={components}>\n<MDXTag name=\"li\" components={components} parentName=\"ul\">{`防抖既可用于在多次触发的事件（如文本框逐个输入文字），也可用于在频繁触发的事件（如调整窗口尺寸）。`}</MDXTag>\n<MDXTag name=\"li\" components={components} parentName=\"ul\">{`节流多只用在频繁触发的事件（如滚动滚动条）上。`}</MDXTag>\n</MDXTag>\n           </MDXTag>\n  }\n}\nMDXContent.isMDXComponent = true\nrender( <MDXContent /> )\n  ","postTime":1551495600000,"comment":3,"availableOtherLocales":["en"],"componentTextMap":{},"siteTitle":"节流 - 理解，实践与实现(苏溪云的博客)","siteMetaDescription":" 节流 - 理解，实践与实现 节流(分流)，与防抖（去抖）实现原理相似。本文主要讨论节流，镜像文章：防抖 - 理解，实践与实现。分开讨论防抖和节流，主要是为了让一些还不太了解节流防抖的读者能够有针对性地，逐一掌握它们。\n如何用代码... (苏溪云的博客)","categoryTitle":"分类","postTimeTitle":"发布时间","reprintingNote":"作者版权所有，转载请注明出处，禁止商业转载","endingWords":"感谢你花时间阅读这篇文章。如是其他平台来的读者，喜欢这篇文章的话欢迎在原平台文章上点赞、收藏和分享，让更多的人看到这篇文章，这也是对我最大的鼓励和支持！","githubCommentBase":"https://api.github.com/repos/terry-su/blogs-cn/issues/","githubIssuePageBase":"https://github.com/Terry-Su/blogs-cn/issues/","remarkDisqusComment":"https://terrysu.disqus.com/embed.js","texts":{"siteTitle":"苏溪云的博客","siteMetaDescription":"苏溪云的原创前端技术博客 4年前端 分享主流前端技术 JavaScript ReactJS","categoryNewest":"最新文章","navArticles":"所有文章","navAbout":"关于作者"},"articleTexts":{"endingWords":"感谢你花时间阅读这篇文章。如是其他平台来的读者，喜欢这篇文章的话欢迎在原平台文章上点赞、收藏和分享，让更多的人看到这篇文章，这也是对我最大的鼓励和支持！","endingWordsExtra":"**欢迎[订阅](https://github.com/Terry-Su/blogs-cn)，第一时间阅读我的最新原创前端技术博客。**","qrcodeImageUrl":"","reprintingNote":"作者版权所有，转载请注明出处，禁止商业转载","category":"分类","postTime":"发布时间","githubIssuePageBase":"https://github.com/Terry-Su/blogs-cn/issues/","githubCommentBase":"https://api.github.com/repos/terry-su/blogs-cn/issues/","commentOnGithub":"添加评论 (by Github Issues)"},"markedEndingWordsExtra":"<p><strong>欢迎<a href=\"https://github.com/Terry-Su/blogs-cn\">订阅</a>，第一时间阅读我的最新原创前端技术博客。</strong></p>"}}
+window.CURRENT_PAGE={"path":"/cn/write-a-modal-or-dialog-using-react","data":{"pathnameRoot":"/cn/","authorUrl":"https://github.com/Terry-Su","locale":"zh_CN","logoTitle":"苏溪云","noteIsAutoTranslated":"本文为自动翻译。","copyright":{"left":"版权 © 2017-","center":"苏溪云","right":"保留所有权利"},"blogGithub":"https://github.com/Terry-Su/blogs-cn","id":"cn/write-a-modal-or-dialog-using-react","title":"使用React手写一个对话框或模态框","path":"Technology/FrontEnd/React","route":"/cn/write-a-modal-or-dialog-using-react","text":"\n\nconst layoutProps = {\n  \n};\nclass MDXContent extends React.Component {\n  constructor(props) {\n    super(props)\n    this.layout = null\n  }\n  render() {\n    const { components, ...props } = this.props\n\n    return <MDXTag\n             name=\"wrapper\"\n             \n             components={components}><MDXTag name=\"p\" components={components}>{`打算用React写对话框已经很长一段时间，现在是时候兑现承诺了。实际上，写起来相当简单。`}</MDXTag>\n<MDXTag name=\"p\" components={components}>{`核心在于使用React的接口`}<MDXTag name=\"inlineCode\" components={components} parentName=\"p\">{`React.createPortal(element, domContainer)`}</MDXTag>{`。该接口将`}<MDXTag name=\"inlineCode\" components={components} parentName=\"p\">{`element`}</MDXTag>{`渲染后的DOM节点嵌入`}<MDXTag name=\"inlineCode\" components={components} parentName=\"p\">{`domContainer`}</MDXTag>{`(通常是`}<MDXTag name=\"inlineCode\" components={components} parentName=\"p\">{`document.body`}</MDXTag>{`)，并保证只嵌入一次。`}</MDXTag>\n<MDXTag name=\"p\" components={components}>{`所以，我们可以这样写一个对话框或模态框：`}</MDXTag>\n<MDXTag name=\"pre\" components={components}><MDXTag name=\"code\" components={components} parentName=\"pre\" props={{\"className\":\"language-js\"}}>{`function Dialog() {\n    return React.createPortal( <div>Dialog contents</div>, document.body )\n}\n`}</MDXTag></MDXTag>\n<MDXTag name=\"p\" components={components}>{`一个新的`}<MDXTag name=\"inlineCode\" components={components} parentName=\"p\">{`div`}</MDXTag>{`会出现在`}<MDXTag name=\"inlineCode\" components={components} parentName=\"p\">{`body`}</MDXTag>{`内部：\n`}<MDXTag name=\"img\" components={components} parentName=\"p\" props={{\"src\":\"https://user-images.githubusercontent.com/23733477/56560376-d86dec00-65d6-11e9-95f5-bcfb31fcf16f.png\",\"alt\":\"image\"}}></MDXTag></MDXTag>\n<MDXTag name=\"p\" components={components}>{`一个完整DEMO:`}</MDXTag>\n<ModalApp />\n<MDXTag name=\"pre\" components={components}><MDXTag name=\"code\" components={components} parentName=\"pre\" props={{\"className\":\"language-js\"}}>{`class Modal extends React.Component {\n  render() {\n    const {\n      visible,\n      onClose\n    } = this.props\n    return visible && ReactDOM.createPortal(<StyledModalRoot>\n      <div className=\"box\">\n        Content\n        <br/>\n        <button onClick={onClose}>Close</button>\n      </div>\n    </StyledModalRoot>, document.body)\n  }\n}\n\nclass App extends React.Component {\n  state = {\n    visibleModal: false\n  }\n  showModal = () => this.setState( { visibleModal: true } )\n  handleCloseModal = () => this.setState( { visibleModal: false } )\n  render() {\n    const { visibleModal } = this.state\n    return <div style={{padding: '20px'}}>\n    <button onClick={ this.showModal }>Show Modal</button>\n    <Modal visible={visibleModal} onClose={ this.handleCloseModal } />\n  </div>\n  }\n}\n\nconst StyledModalRoot = styled.div\\`\n  position: fixed;\n  z-index: 1001;\n  left: 0;\n  top: 0;\n  display: grid;\n  place-items: center;\n  width: 100%;\n  height: 100%;\n  background: rgba( 0, 0, 0, 0.2 );\n\n  >.box {\n    position: relative;\n    display: grid;\n    place-items: center;\n    width: 80%;\n    height: 80%;\n    background: white;\n    border-radius: 10px;\n    box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2), 0px 5px 8px 0px rgba(0,0,0,0.14), 0px 1px 14px 0px rgba(0,0,0,0.12);\n  }\n\\`\n`}</MDXTag></MDXTag>\n<MDXTag name=\"p\" components={components}>{`是不是很简单?`}</MDXTag>\n           </MDXTag>\n  }\n}\nMDXContent.isMDXComponent = true\nrender( <MDXContent /> )\n  ","postTime":1556002800000,"comment":6,"availableOtherLocales":["en"],"componentTextMap":{"ModalApp":"\nclass Modal extends React.Component {\n  render() {\n    const {\n      visible,\n      onClose\n    } = this.props\n    return visible && ReactDOM.createPortal(<StyledModalRoot>\n      <div className=\"box\">\n        Content\n        <br/>\n        <button onClick={onClose}>Close</button>\n      </div>\n    </StyledModalRoot>, document.body)\n  }\n}\n\nclass App extends React.Component {\n  state = {\n    visibleModal: false\n  }\n  showModal = () => this.setState( { visibleModal: true } )\n  handleCloseModal = () => this.setState( { visibleModal: false } )\n  render() {\n    const { visibleModal } = this.state\n    return <div style={{padding: '20px'}}>\n    <button onClick={ this.showModal }>Show Modal</button>\n    <Modal visible={visibleModal} onClose={ this.handleCloseModal } />\n  </div>\n  }\n}\n\nconst StyledModalRoot = styled.div`\n  position: fixed;\n  z-index: 1001;\n  left: 0;\n  top: 0;\n  display: grid;\n  place-items: center;\n  width: 100%;\n  height: 100%;\n  background: rgba( 0, 0, 0, 0.2 );\n\n  >.box {\n    position: relative;\n    display: grid;\n    place-items: center;\n    width: 80%;\n    height: 80%;\n    background: white;\n    border-radius: 10px;\n    box-shadow: 0px 3px 5px -1px rgba(0,0,0,0.2), 0px 5px 8px 0px rgba(0,0,0,0.14), 0px 1px 14px 0px rgba(0,0,0,0.12);\n  }\n`\n\nrender( <App /> )"},"siteTitle":"使用React手写一个对话框或模态框(苏溪云的博客)","siteMetaDescription":" 使用React手写一个对话框或模态框 打算用React写对话框已经很长一段时间，现在是时候兑现承诺了。实际上，写起来相当简单。\n\n核心在于使用React的接口React.createPortal(element, domContainer... (苏溪云的博客)","categoryTitle":"分类","postTimeTitle":"发布时间","reprintingNote":"作者版权所有，转载请注明出处，禁止商业转载","endingWords":"感谢你花时间阅读这篇文章。如是其他平台来的读者，喜欢这篇文章的话欢迎在原平台文章上点赞、收藏和分享，让更多的人看到这篇文章，这也是对我最大的鼓励和支持！","githubCommentBase":"https://api.github.com/repos/terry-su/blogs-cn/issues/","githubIssuePageBase":"https://github.com/Terry-Su/blogs-cn/issues/","remarkDisqusComment":"https://terrysu.disqus.com/embed.js","texts":{"siteTitle":"苏溪云的博客","siteMetaDescription":"苏溪云的原创前端技术博客 4年前端 分享主流前端技术 JavaScript ReactJS","categoryNewest":"最新文章","navArticles":"所有文章","navAbout":"关于作者"},"articleTexts":{"endingWords":"感谢你花时间阅读这篇文章。如是其他平台来的读者，喜欢这篇文章的话欢迎在原平台文章上点赞、收藏和分享，让更多的人看到这篇文章，这也是对我最大的鼓励和支持！","endingWordsExtra":"**欢迎[订阅](https://github.com/Terry-Su/blogs-cn)，第一时间阅读我的最新原创前端技术博客。**","qrcodeImageUrl":"","reprintingNote":"作者版权所有，转载请注明出处，禁止商业转载","category":"分类","postTime":"发布时间","githubIssuePageBase":"https://github.com/Terry-Su/blogs-cn/issues/","githubCommentBase":"https://api.github.com/repos/terry-su/blogs-cn/issues/","commentOnGithub":"添加评论 (by Github Issues)"},"markedEndingWordsExtra":"<p><strong>欢迎<a href=\"https://github.com/Terry-Su/blogs-cn\">订阅</a>，第一时间阅读我的最新原创前端技术博客。</strong></p>"}}
 
 </script>
 
