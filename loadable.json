@@ -2,7 +2,7 @@
   "prop-types": [
     {
       "id": 0,
-      "name": "./node_modules/_prop-types@15.7.2@prop-types/index.js",
+      "name": "./node_modules/prop-types/index.js",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
     }
@@ -15,50 +15,52 @@
       "publicPath": "/bundle.js"
     },
     {
-      "id": 6,
+      "id": 5,
       "name": "styled-components",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
     },
     {
-      "id": 24,
+      "id": 23,
       "name": "react-dom",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
     },
     {
-      "id": 71,
+      "id": 69,
       "name": "@babel/standalone",
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    }
-  ],
-  "invariant": [
-    {
-      "id": 2,
-      "name": "./node_modules/_invariant@2.2.4@invariant/browser.js",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
     }
   ],
   "warning": [
     {
-      "id": 3,
-      "name": "./node_modules/_warning@4.0.3@warning/warning.js",
+      "id": 2,
+      "name": "./node_modules/warning/warning.js",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
-    },
+    }
+  ],
+  "invariant": [
     {
-      "id": 4,
-      "name": "./node_modules/_warning@3.0.0@warning/browser.js",
+      "id": 3,
+      "name": "./node_modules/invariant/browser.js",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
     }
   ],
   "@/__typings__/DefaultComponentProps": [
     {
-      "id": 5,
+      "id": 4,
       "name": "./src/__typings__/DefaultComponentProps.ts",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    }
+  ],
+  "@babel/runtime/helpers/esm/extends": [
+    {
+      "id": 6,
+      "name": "./node_modules/@babel/runtime/helpers/esm/extends.js",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
     }
@@ -71,41 +73,33 @@
       "publicPath": "/bundle.js"
     }
   ],
-  "@babel/runtime/helpers/esm/extends": [
-    {
-      "id": 8,
-      "name": "./node_modules/_@babel_runtime@7.3.4@@babel/runtime/helpers/esm/extends.js",
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    }
-  ],
   "react-redux": [
     {
-      "id": 9,
-      "name": "./node_modules/_react-redux@6.0.1@react-redux/es/index.js",
+      "id": 8,
+      "name": "./node_modules/react-redux/es/index.js",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
     }
   ],
   "react-router/es/Router": [
     {
-      "id": 10,
-      "name": "./node_modules/_react-router@4.3.1@react-router/es/Router.js",
+      "id": 9,
+      "name": "./node_modules/react-router/es/Router.js",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
     }
   ],
   "react-router/es/matchPath": [
     {
-      "id": 11,
-      "name": "./node_modules/_react-router@4.3.1@react-router/es/matchPath.js",
+      "id": 10,
+      "name": "./node_modules/react-router/es/matchPath.js",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
     }
   ],
   "@/styles/STYLES": [
     {
-      "id": 12,
+      "id": 11,
       "name": "./src/styles/STYLES.ts",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
@@ -113,31 +107,31 @@
   ],
   "react-router/es/Route": [
     {
-      "id": 13,
-      "name": "./node_modules/_react-router@4.3.1@react-router/es/Route.js",
+      "id": 12,
+      "name": "./node_modules/react-router/es/Route.js",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
     }
   ],
   "react-router-dom": [
     {
-      "id": 14,
-      "name": "./node_modules/_react-router-dom@4.3.1@react-router-dom/es/index.js",
+      "id": 13,
+      "name": "./node_modules/react-router-dom/es/index.js",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
     }
   ],
   "path-to-regexp": [
     {
-      "id": 15,
-      "name": "./node_modules/_path-to-regexp@1.7.0@path-to-regexp/index.js",
+      "id": 14,
+      "name": "./node_modules/path-to-regexp/index.js",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
     }
   ],
   "./App": [
     {
-      "id": 16,
+      "id": 15,
       "name": "./.cache/App.tsx",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
@@ -145,7 +139,7 @@
   ],
   "./TSLink": [
     {
-      "id": 17,
+      "id": 16,
       "name": "./.cache/TSLink.tsx",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
@@ -153,7 +147,7 @@
   ],
   "@/layouts/LayoutHome": [
     {
-      "id": 18,
+      "id": 17,
       "name": "./src/layouts/LayoutHome.tsx",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
@@ -161,85 +155,85 @@
   ],
   "react-is": [
     {
-      "id": 19,
-      "name": "./node_modules/_react-is@16.8.3@react-is/index.js",
+      "id": 18,
+      "name": "./node_modules/react-is/index.js",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
     }
   ],
   "redux": [
     {
-      "id": 20,
-      "name": "./node_modules/_redux@4.0.1@redux/es/redux.js",
+      "id": 19,
+      "name": "./node_modules/redux/es/redux.js",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
     }
   ],
   "react-router/es/Switch": [
     {
-      "id": 21,
-      "name": "./node_modules/_react-router@4.3.1@react-router/es/Switch.js",
+      "id": 20,
+      "name": "./node_modules/react-router/es/Switch.js",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
     }
   ],
   "hoist-non-react-statics": [
     {
-      "id": 22,
-      "name": "./node_modules/_hoist-non-react-statics@3.3.0@hoist-non-react-statics/dist/hoist-non-react-statics.cjs.js",
+      "id": 21,
+      "name": "./node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.cjs.js",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
     },
     {
-      "id": 39,
-      "name": "./node_modules/_hoist-non-react-statics@2.5.5@hoist-non-react-statics/dist/hoist-non-react-statics.cjs.js",
+      "id": 37,
+      "name": "./node_modules/react-router/node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.cjs.js",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
     }
   ],
   "symbol-observable": [
     {
-      "id": 23,
-      "name": "./node_modules/_symbol-observable@1.2.0@symbol-observable/es/index.js",
+      "id": 22,
+      "name": "./node_modules/symbol-observable/es/index.js",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
     }
   ],
   "react-loadable": [
     {
-      "id": 25,
-      "name": "./node_modules/_react-loadable@5.5.0@react-loadable/lib/index.js",
+      "id": 24,
+      "name": "./node_modules/react-loadable/lib/index.js",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
     }
   ],
   "isomorphic-fetch": [
     {
-      "id": 26,
-      "name": "./node_modules/_isomorphic-fetch@2.2.1@isomorphic-fetch/fetch-npm-browserify.js",
+      "id": 25,
+      "name": "./node_modules/isomorphic-fetch/fetch-npm-browserify.js",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
     }
   ],
   "../src/pages/Home": [
     {
-      "id": 27,
+      "id": 26,
       "name": "./src/pages/Home.tsx",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
     }
   ],
-  "./../../../../tsblog/node_modules/_webpack@4.29.6@webpack/buildin/global.js": [
+  "./../../../../tsblog/node_modules/webpack/buildin/global.js": [
     {
-      "id": 28,
-      "name": "../tsblog/node_modules/_webpack@4.29.6@webpack/buildin/global.js",
+      "id": 27,
+      "name": "../tsblog/node_modules/webpack/buildin/global.js",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
     }
   ],
   "@/components/ResolvedLink": [
     {
-      "id": 29,
+      "id": 28,
       "name": "./src/components/ResolvedLink.tsx",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
@@ -247,7 +241,7 @@
   ],
   "@locale/names": [
     {
-      "id": 30,
+      "id": 29,
       "name": "./locale/names.ts",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
@@ -255,7 +249,7 @@
   ],
   "@/utils/time": [
     {
-      "id": 31,
+      "id": 30,
       "name": "./src/utils/time.ts",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
@@ -263,7 +257,7 @@
   ],
   "../src/templates/RemarkTemplate/RemarkTemplate": [
     {
-      "id": 32,
+      "id": 31,
       "name": "./src/templates/RemarkTemplate/RemarkTemplate.tsx",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
@@ -271,7 +265,7 @@
   ],
   "@/components/Markdown/Markdown": [
     {
-      "id": 33,
+      "id": 32,
       "name": "./src/components/Markdown/Markdown.tsx",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
@@ -279,23 +273,15 @@
   ],
   "./mdx-provider": [
     {
-      "id": 34,
-      "name": "./node_modules/_@mdx-js_tag@0.20.3@@mdx-js/tag/dist/mdx-provider.js",
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    }
-  ],
-  "../Live/Live": [
-    {
-      "id": 35,
-      "name": "./src/components/Live/Live.tsx",
+      "id": 33,
+      "name": "./node_modules/@mdx-js/tag/dist/mdx-provider.js",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
     }
   ],
   "@/components/Note/NoteIsAutoTranslated": [
     {
-      "id": 36,
+      "id": 34,
       "name": "./src/components/Note/NoteIsAutoTranslated.tsx",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
@@ -303,7 +289,7 @@
   ],
   "../src/pages/About": [
     {
-      "id": 37,
+      "id": 35,
       "name": "./src/pages/About.tsx",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
@@ -311,7 +297,7 @@
   ],
   "@/state/reduxReducerHelper": [
     {
-      "id": 38,
+      "id": 36,
       "name": "./src/state/reduxReducerHelper.ts",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
@@ -319,15 +305,15 @@
   ],
   "./ponyfill.js": [
     {
-      "id": 40,
-      "name": "./node_modules/_symbol-observable@1.2.0@symbol-observable/es/ponyfill.js",
+      "id": 38,
+      "name": "./node_modules/symbol-observable/es/ponyfill.js",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
     }
   ],
-  "/Users/suxing/Documents/TheWorkingDocuments/Item/blog/.cache/Entry.tsx": [
+  "D:\\docs\\items\\blog\\.cache\\Entry.tsx": [
     {
-      "id": 41,
+      "id": 39,
       "name": "./.cache/Entry.tsx",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
@@ -335,47 +321,47 @@
   ],
   "./factoryWithThrowingShims": [
     {
-      "id": 42,
-      "name": "./node_modules/_prop-types@15.7.2@prop-types/factoryWithThrowingShims.js",
+      "id": 40,
+      "name": "./node_modules/prop-types/factoryWithThrowingShims.js",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
     }
   ],
   "./lib/ReactPropTypesSecret": [
     {
-      "id": 43,
-      "name": "./node_modules/_prop-types@15.7.2@prop-types/lib/ReactPropTypesSecret.js",
+      "id": 41,
+      "name": "./node_modules/prop-types/lib/ReactPropTypesSecret.js",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
     }
   ],
   "isarray": [
     {
-      "id": 44,
-      "name": "./node_modules/_isarray@0.0.1@isarray/index.js",
+      "id": 42,
+      "name": "./node_modules/path-to-regexp/node_modules/isarray/index.js",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
     }
   ],
   "react-router-config": [
     {
-      "id": 45,
-      "name": "./node_modules/_react-router-config@4.4.0-beta.6@react-router-config/esm/react-router-config.js",
+      "id": 43,
+      "name": "./node_modules/react-router-config/esm/react-router-config.js",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
     }
   ],
   "whatwg-fetch": [
     {
-      "id": 46,
-      "name": "./node_modules/_whatwg-fetch@3.0.0@whatwg-fetch/fetch.js",
+      "id": 44,
+      "name": "./node_modules/whatwg-fetch/fetch.js",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
     }
   ],
   "../../tsblog/src/utils/createFileNameOfPath": [
     {
-      "id": 47,
+      "id": 45,
       "name": "../tsblog/src/utils/createFileNameOfPath.ts",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
@@ -383,7 +369,7 @@
   ],
   "./Articles/Articles": [
     {
-      "id": 48,
+      "id": 46,
       "name": "./src/pages/Articles/Articles.tsx",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
@@ -391,23 +377,23 @@
   ],
   "./cjs/react-is.production.min.js": [
     {
-      "id": 49,
-      "name": "./node_modules/_react-is@16.8.3@react-is/cjs/react-is.production.min.js",
+      "id": 47,
+      "name": "./node_modules/react-is/cjs/react-is.production.min.js",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
     }
   ],
-  "./../../../../tsblog/node_modules/_webpack@4.29.6@webpack/buildin/harmony-module.js": [
+  "./../../../../tsblog/node_modules/webpack/buildin/harmony-module.js": [
     {
-      "id": 50,
-      "name": "../tsblog/node_modules/_webpack@4.29.6@webpack/buildin/harmony-module.js",
+      "id": 48,
+      "name": "../tsblog/node_modules/webpack/buildin/harmony-module.js",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
     }
   ],
   "@/components/Category/Category": [
     {
-      "id": 51,
+      "id": 49,
       "name": "./src/components/Category/Category.tsx",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
@@ -415,7 +401,7 @@
   ],
   "@tsblog/constants/names": [
     {
-      "id": 52,
+      "id": 50,
       "name": "../tsblog/src/constants/names.ts",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
@@ -423,7 +409,7 @@
   ],
   "@/components/Footer/Footer": [
     {
-      "id": 53,
+      "id": 51,
       "name": "./src/components/Footer/Footer.tsx",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
@@ -431,7 +417,7 @@
   ],
   "@/components/Header/Header": [
     {
-      "id": 54,
+      "id": 52,
       "name": "./src/components/Header/Header.tsx",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
@@ -439,7 +425,7 @@
   ],
   "@/constants/paths": [
     {
-      "id": 55,
+      "id": 53,
       "name": "./src/constants/paths.ts",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
@@ -447,7 +433,7 @@
   ],
   "../svg/Logo": [
     {
-      "id": 56,
+      "id": 54,
       "name": "./src/components/svg/Logo.tsx",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
@@ -455,7 +441,7 @@
   ],
   "@/components/LangSwitch/LangSwitch": [
     {
-      "id": 57,
+      "id": 55,
       "name": "./src/components/LangSwitch/LangSwitch.tsx",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
@@ -463,7 +449,7 @@
   ],
   "@locale/specialNameMap": [
     {
-      "id": 58,
+      "id": 56,
       "name": "./locale/specialNameMap.ts",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
@@ -471,7 +457,7 @@
   ],
   "./LayoutBasic": [
     {
-      "id": 59,
+      "id": 57,
       "name": "./src/layouts/LayoutBasic.tsx",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
@@ -479,7 +465,7 @@
   ],
   "@/styles/GlobalStyle": [
     {
-      "id": 60,
+      "id": 58,
       "name": "./src/styles/GlobalStyle.ts",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
@@ -487,7 +473,7 @@
   ],
   "./List": [
     {
-      "id": 61,
+      "id": 59,
       "name": "./src/pages/Articles/List.tsx",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
@@ -495,7 +481,7 @@
   ],
   "../../shared/time": [
     {
-      "id": 62,
+      "id": 60,
       "name": "./shared/time.ts",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
@@ -503,15 +489,15 @@
   ],
   "prismjs": [
     {
-      "id": 63,
-      "name": "./node_modules/_prismjs@1.16.0@prismjs/prism.js",
+      "id": 61,
+      "name": "./node_modules/prismjs/prism.js",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
     }
   ],
   "@/styles/GlobalMarkdownStyle": [
     {
-      "id": 64,
+      "id": 62,
       "name": "./src/styles/GlobalMarkdownStyle.ts",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
@@ -519,7 +505,7 @@
   ],
   "@/utils/mermaid": [
     {
-      "id": 65,
+      "id": 63,
       "name": "./src/utils/mermaid.ts",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
@@ -527,7 +513,7 @@
   ],
   "./dom": [
     {
-      "id": 66,
+      "id": 64,
       "name": "./src/utils/dom.ts",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
@@ -535,32 +521,48 @@
   ],
   "@mdx-js/tag": [
     {
-      "id": 67,
-      "name": "./node_modules/_@mdx-js_tag@0.20.3@@mdx-js/tag/dist/index.js",
+      "id": 65,
+      "name": "./node_modules/@mdx-js/tag/dist/index.js",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
     }
   ],
   "./mdx-tag": [
     {
-      "id": 68,
-      "name": "./node_modules/_@mdx-js_tag@0.20.3@@mdx-js/tag/dist/mdx-tag.js",
+      "id": 66,
+      "name": "./node_modules/@mdx-js/tag/dist/mdx-tag.js",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
     }
   ],
-  "../../../shared/getLiveComponentMap": [
+  "../Live/Live": [
     {
-      "id": 69,
-      "name": "./shared/getLiveComponentMap.tsx",
+      "id": 67,
+      "name": "./src/components/Live/Live.tsx",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
     }
   ],
-  "./../../../../tsblog/node_modules/_process@0.11.10@process/browser.js": [
+  "./../../../../tsblog/node_modules/process/browser.js": [
+    {
+      "id": 68,
+      "name": "../tsblog/node_modules/process/browser.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    }
+  ],
+  "@/components/Live/CodeLive": [
     {
       "id": 70,
-      "name": "../tsblog/node_modules/_process@0.11.10@process/browser.js",
+      "name": "./src/components/Live/CodeLive.tsx",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    }
+  ],
+  "@/components/ComponentSSR": [
+    {
+      "id": 71,
+      "name": "./src/components/ComponentSSR.tsx",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
     }
@@ -568,7 +570,7 @@
   "prismjs/components/prism-jsx.min": [
     {
       "id": 72,
-      "name": "./node_modules/_prismjs@1.16.0@prismjs/components/prism-jsx.min.js",
+      "name": "./node_modules/prismjs/components/prism-jsx.min.js",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
     }
