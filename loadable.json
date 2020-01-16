@@ -21,7 +21,7 @@
       "publicPath": "/bundle.js"
     },
     {
-      "id": 23,
+      "id": 22,
       "name": "react-dom",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
@@ -129,17 +129,9 @@
       "publicPath": "/bundle.js"
     }
   ],
-  "./App": [
-    {
-      "id": 15,
-      "name": "./.cache/App.tsx",
-      "file": "bundle.js",
-      "publicPath": "/bundle.js"
-    }
-  ],
   "./TSLink": [
     {
-      "id": 16,
+      "id": 15,
       "name": "./.cache/TSLink.tsx",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
@@ -147,7 +139,7 @@
   ],
   "@/layouts/LayoutHome": [
     {
-      "id": 17,
+      "id": 16,
       "name": "./src/layouts/LayoutHome.tsx",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
@@ -155,7 +147,7 @@
   ],
   "react-is": [
     {
-      "id": 18,
+      "id": 17,
       "name": "./node_modules/react-is/index.js",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
@@ -163,7 +155,7 @@
   ],
   "redux": [
     {
-      "id": 19,
+      "id": 18,
       "name": "./node_modules/redux/es/redux.js",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
@@ -171,7 +163,7 @@
   ],
   "react-router/es/Switch": [
     {
-      "id": 20,
+      "id": 19,
       "name": "./node_modules/react-router/es/Switch.js",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
@@ -179,7 +171,7 @@
   ],
   "hoist-non-react-statics": [
     {
-      "id": 21,
+      "id": 20,
       "name": "./node_modules/hoist-non-react-statics/dist/hoist-non-react-statics.cjs.js",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
@@ -193,7 +185,7 @@
   ],
   "symbol-observable": [
     {
-      "id": 22,
+      "id": 21,
       "name": "./node_modules/symbol-observable/es/index.js",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
@@ -201,8 +193,16 @@
   ],
   "react-loadable": [
     {
-      "id": 24,
+      "id": 23,
       "name": "./node_modules/react-loadable/lib/index.js",
+      "file": "bundle.js",
+      "publicPath": "/bundle.js"
+    }
+  ],
+  "./App": [
+    {
+      "id": 24,
+      "name": "./.cache/App.tsx",
       "file": "bundle.js",
       "publicPath": "/bundle.js"
     }
